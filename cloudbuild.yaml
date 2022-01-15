@@ -1,0 +1,13 @@
+steps:
+  # build the container image
+- name: "gcr.io/cloud-builders/docker"
+  args: ["build", "-t", "asia-southeast2-docker.pkg.dev/$PROJECT_ID/go-oauth2-kompasid/dev:$BUILD_ID", "."]
+  # push container image
+- name: "gcr.io/cloud-builders/docker"
+  args: ["push", "asia-southeast2-docker.pkg.dev/$PROJECT_ID/go-oauth2-kompasid/dev:$BUILD_ID"]
+  # deploy container image to GKE
+- name: "gcr.io/cloud-builders/kubectl"
+  args: ["set","image","deployment","go-oauth2-kompasid-dev","go-oauth2-kompasid-dev=asia-southeast2-docker.pkg.dev/$PROJECT_ID/go-oauth2-kompasid/dev:$BUILD_ID"]
+  env:
+  - CLOUDSDK_COMPUTE_ZONE=asia-southeast2-a
+  - CLOUDSDK_CONTAINER_CLUSTER=gke-sandbox-poc-01
