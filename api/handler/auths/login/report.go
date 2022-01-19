@@ -1,6 +1,7 @@
 package login
 
 import (
+	"fmt"
 	"net/http"
 	ENTITY_AUTH "test-case-majoo/entity/auths"
 	"test-case-majoo/entity/responses"
@@ -27,12 +28,15 @@ func (handler *LoginController) MonthlyReport(context *gin.Context) {
 		return
 	}
 
-	handler.at.GetMonthlyReport(guidString, input.Month)
+	data, erre := handler.at.GetMonthlyReport(guidString, input.Month)
+	if erre != nil {
+		fmt.Println("erre", erre)
+	}
 
 	result := responses.Response{
 		Code:    http.StatusOK,
 		Message: success.SuccessReport,
-		Data:    input,
+		Data:    data,
 	}
 	response.Response(context, &result)
 }

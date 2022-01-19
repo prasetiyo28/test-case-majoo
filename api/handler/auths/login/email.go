@@ -14,20 +14,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// Login is a function used to login user
-// Param : -
-// Response : response.Response
-
-// Login godoc
-// @Summary Login By Email
-// @Description Login User Using Email
-// @Tags Login
-// @Accept  json
-// @Produce  json
-// @Param login body auths.AuthLogin true "Login User"
-// @Success 200 {object} responses.Response{data=auths.Login}
-// @Failure 400 {object} responses.Response
-// @Router /login/email [post]
 func (handler *LoginController) Login(context *gin.Context) {
 	var input ENTITY_AUTH.LoginRequest
 
@@ -41,7 +27,6 @@ func (handler *LoginController) Login(context *gin.Context) {
 		return
 	}
 
-	// validation empty password social & 412 validation
 	user, errGetUser := handler.at.GetUserByID(input.UserName)
 	if errGetUser != nil {
 		result := responses.Response{

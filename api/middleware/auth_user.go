@@ -113,7 +113,7 @@ func AuthUser() gin.HandlerFunc {
 		}
 
 		c.Set("userGuid", m["id"])
-		c.Set("email", m["email"]) //note: tobedeleted
+		// c.Set("email", m["email"]) //note: tobedeleted
 		c.Next()
 	}
 }
