@@ -8,9 +8,6 @@ package-lock.json
 sendgrid.env
 jwt_key
 jwt_key.pub
-kmn-dev-e79b9aaeef75.json
-kmn-dev-50b674d6c57c.json
-key-db-event.json
 key.json
 .DS_Store
 kube/
