@@ -11,7 +11,7 @@ type Writer interface {
 
 type Reader interface {
 	GetUserByID(userID string) (auths.User, *responses.Response)
-	GetMonthlyReport(userID, Month string) (auths.MonthlyReport, *responses.Response)
+	GetMonthlyReport(userID, Month, limit, page string) (auths.MonthlyReports, *responses.Response)
 }
 
 //Repository interface
@@ -22,5 +22,5 @@ type Repository interface {
 
 type UseCase interface {
 	GetUserByID(userID string) (auths.User, *responses.Response)
-	GetMonthlyReport(userID, Month string) (auths.MonthlyReport, *responses.Response)
+	GetMonthlyReport(userID, Month, limit, page string) (auths.MonthlyReports, *responses.Response)
 }

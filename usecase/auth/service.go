@@ -23,6 +23,6 @@ func (s *Service) GetUserByID(userID string) (auths.User, *responses.Response) {
 }
 
 // BP : Create user vip
-func (s *Service) GetMonthlyReport(userID, Month string) (auths.MonthlyReport, *responses.Response) {
-	return s.repo.GetMonthlyReport(userID, Month)
+func (s *Service) GetMonthlyReport(userID, Month, limit, page string) (auths.MonthlyReports, *responses.Response) {
+	return s.repo.GetMonthlyReport(userID, Month, limit, page)
 }

@@ -7,9 +7,9 @@ type ReportRequest struct {
 }
 
 type MonthlyReport struct {
-	ID              string `json:"guid"`
-	MerchantName    string `json:"merchant_name"`
-	TransactionBill string `json:"bill_total"`
+	ID           string `json:"guid"`
+	MerchantName string `json:"merchant_name"`
+	BillTotal    int    `json:"bill_total"`
 }
 
 type MonthlyReports []MonthlyReport

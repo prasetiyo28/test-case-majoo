@@ -28,7 +28,7 @@ func (handler *LoginController) MonthlyReport(context *gin.Context) {
 		return
 	}
 
-	data, erre := handler.at.GetMonthlyReport(guidString, input.Month)
+	data, erre := handler.at.GetMonthlyReport(guidString, input.Month, input.Limit, input.Page)
 	if erre != nil {
 		fmt.Println("erre", erre)
 	}
